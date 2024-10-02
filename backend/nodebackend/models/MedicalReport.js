@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 
-const reportSchema = new mongoose.Schema({
+const medicalReportSchema = new mongoose.Schema({
     patientId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    reportData: { type: String, required: true }, // You can change this to a more complex structure as needed.
+    reportData: { type: String, required: true }, // This could be a URL or path to the file
     uploadDate: { type: Date, default: Date.now },
+}, {
+    timestamps: true
 });
 
-module.exports = mongoose.model('MedicalReport', reportSchema);
+module.exports = mongoose.model('MedicalReport', medicalReportSchema);
